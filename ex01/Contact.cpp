@@ -6,16 +6,26 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:37:55 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/23 11:26:22 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/23 22:15:54 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
 
 Contact::Contact() {
-    // Initialize member variables or perform any necessary setup
+}
+
+std::string Contact::getFirstName() const {
+    return first_name;
+}
+
+std::string Contact::getLastName() const {
+    return last_name;
+}
+
+std::string Contact::getNickname() const {
+    return nickname;
 }
 
 void fill_the_contact(Contact& contact)
@@ -30,4 +40,5 @@ void fill_the_contact(Contact& contact)
     std::cin >> contact.phone_number; 
     std::cout << "Dark secret: ";
     std::cin >> contact.dark_secret;
+    
 }
