@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:29:17 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/24 20:16:18 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 22:35:09 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,29 @@ void head() {
     std::cout << "---------------------------------------------" << std::endl;
 }
 
+std::string shortage(std::string input) {
+    if (input.length() >= 10) {
+        return input.substr(0, 10 - 1) + ".";
+    } else {
+        return input + std::string(10 - input.length(), ' ');
+    }
+}
+
 void body(const PhoneBook& phonebook, int index) {
     std::cout << "| ";
     std::cout << index;
     std::cout << "        |";
-    std::cout << phonebook.contacts[index].getFirstName();
-    std::cout << " |";
-    std::cout << phonebook.contacts[index].getLastName();
-    std::cout << " |";
-    std::cout << phonebook.contacts[index].getNickname() << std::endl;
+    std::cout << shortage(phonebook.contacts[index].getFirstName());
+    std::cout << "|";
+    std::cout << shortage(phonebook.contacts[index].getLastName());
+    std::cout << "|";
+    std::cout << shortage(phonebook.contacts[index].getNickname());
+    std::cout << "|" << std::endl;
     std::cout << "---------------------------------------------" << std::endl;
 }
 
-void idx_infos(const PhoneBook& phonebook, int idx)
-{
+
+void idx_infos(const PhoneBook& phonebook, int idx) {
     std::cout << "First name: ";
     std::cout << phonebook.contacts[idx].getFirstName() << std::endl;
     std::cout << "Last name: ";
@@ -61,7 +70,6 @@ void PhoneBook::search() {
     } else {
         std::cout << "wrong input" << std::endl;
     }
-
 }
 
 int main() {
@@ -70,17 +78,13 @@ int main() {
 
     while (std::cin) {
         getline(std::cin, input_line);
-        if (input_line == "ADD")
-        {
-            fill_the_contact(phonebook.contacts[phonebook.contact.num]);
+        if (input_line == "ADD") {
+            fill_the_contact(phonebook.contacts[phonebook.contact.num % 8]);
             phonebook.contact.num++;
-        }
-        else if (input_line == "SEARCH")
+        } else if (input_line == "SEARCH")
             phonebook.search();
         else if (input_line == "EXIT")
             return 0;
     }
     return 0;
 }
-
-

@@ -6,12 +6,11 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:37:55 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/24 15:54:49 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 22:27:51 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-
 
 Contact::Contact() {
 }
@@ -48,5 +47,4 @@ void fill_the_contact(Contact& contact)
     std::cin >> contact.phone_number; 
     std::cout << "Dark secret: ";
     std::cin >> contact.dark_secret;
-    
 }
