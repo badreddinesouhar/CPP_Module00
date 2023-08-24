@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:07:59 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/24 15:54:24 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 23:03:33 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ private:
     std::string phone_number;
     std::string dark_secret;
     
-    friend void fill_the_contact(Contact& contact);
 public:
     Contact();
-    void fill_the_contact(Contact& contact);
+    void fill_the_contact();
     int num;
     std::string getFirstName() const;
     std::string getLastName() const;

@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:37:55 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/24 22:27:51 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 23:03:15 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ std::string Contact::getDarkSecret()const {
     return dark_secret;
 }
 
-void fill_the_contact(Contact& contact)
+void Contact::fill_the_contact()
 {
     std::cout << "First name: ";
-    std::cin >> contact.first_name; 
+    std::cin >> first_name; 
     std::cout << "Last name: ";
-    std::cin >> contact.last_name;
+    std::cin >> last_name;
     std::cout << "Nickname: ";
-    std::cin >> contact.nickname; 
+    std::cin >> nickname; 
     std::cout << "Phone number: ";
-    std::cin >> contact.phone_number; 
+    std::cin >> phone_number; 
     std::cout << "Dark secret: ";
-    std::cin >> contact.dark_secret;
+    std::cin >> dark_secret;
 }

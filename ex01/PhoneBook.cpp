@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:29:17 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/24 22:35:09 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 23:05:02 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,13 @@ int main() {
     while (std::cin) {
         getline(std::cin, input_line);
         if (input_line == "ADD") {
-            fill_the_contact(phonebook.contacts[phonebook.contact.num % 8]);
+            phonebook.contacts[phonebook.contact.num % 8].fill_the_contact();
             phonebook.contact.num++;
-        } else if (input_line == "SEARCH")
+        } else if (input_line == "SEARCH") {
             phonebook.search();
-        else if (input_line == "EXIT")
+        } else if (input_line == "EXIT") {
             return 0;
+        }
     }
     return 0;
 }
