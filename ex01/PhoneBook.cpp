@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:29:17 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/23 22:15:02 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 16:02:33 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,33 @@ void body(const PhoneBook& phonebook, int index) {
     std::cout << "---------------------------------------------" << std::endl;
 }
 
+void idx_infos(const PhoneBook& phonebook, int idx)
+{
+    std::cout << "First name: ";
+    std::cout << phonebook.contacts[idx].getFirstName() << std::endl;
+    std::cout << "Last name: ";
+    std::cout << phonebook.contacts[idx].getLastName() << std::endl;
+    std::cout << "Nickname: ";
+    std::cout << phonebook.contacts[idx].getNickname() << std::endl;
+    std::cout << "Phone number: ";
+    std::cout << phonebook.contacts[idx].getPhoneNumber() << std::endl;
+    std::cout << "Dark secret: ";
+    std::cout << phonebook.contacts[idx].getDarkSecret() << std::endl;
+}
+
 void PhoneBook::search() {
     head();
     for (int i = 0; i < contact.num; ++i) {
         body(*this, i);
     }
+    int idx = -1;
+    std::cout << "choose an index:";
+    std::cin >> idx;
+    printf("%d\n",contact.num);
+    if (0 <= idx >= contact.num)
+        idx_infos(*this, idx);
+    else
+        std::cout << "wrong input" << std::endl;
 }
 
 int main() {

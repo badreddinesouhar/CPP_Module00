@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:37:55 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/23 22:15:54 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 15:54:49 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ std::string Contact::getLastName() const {
 
 std::string Contact::getNickname() const {
     return nickname;
+}
+
+std::string Contact::getPhoneNumber() const {
+    return phone_number;
+}
+
+std::string Contact::getDarkSecret()const {
+    return dark_secret;
 }
 
 void fill_the_contact(Contact& contact)

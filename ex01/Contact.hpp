@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:07:59 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/23 20:52:11 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 15:54:24 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ public:
     std::string getFirstName() const;
     std::string getLastName() const;
     std::string getNickname() const;
+    std::string getPhoneNumber() const;
+    std::string getDarkSecret() const;
 };
 
 #endif
