@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:29:17 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/24 16:02:33 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/24 20:16:18 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ void body(const PhoneBook& phonebook, int index) {
     std::cout << " |";
     std::cout << phonebook.contacts[index].getLastName();
     std::cout << " |";
-    std::cout << phonebook.contacts[index].getNickname();
-    std::cout << std::endl;
+    std::cout << phonebook.contacts[index].getNickname() << std::endl;
     std::cout << "---------------------------------------------" << std::endl;
 }
 
@@ -57,11 +56,12 @@ void PhoneBook::search() {
     int idx = -1;
     std::cout << "choose an index:";
     std::cin >> idx;
-    printf("%d\n",contact.num);
-    if (0 <= idx >= contact.num)
+    if (0 <= idx && idx < contact.num) {
         idx_infos(*this, idx);
-    else
+    } else {
         std::cout << "wrong input" << std::endl;
+    }
+
 }
 
 int main() {
