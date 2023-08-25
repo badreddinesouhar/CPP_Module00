@@ -6,14 +6,9 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:28:27 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/25 18:08:43 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/25 22:12:42 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "Account.hpp"
-
-
-// Account.cpp
 
 #include "Account.hpp"
 
@@ -93,8 +88,19 @@ void Account::displayStatus(void) const {
 }
 
 void Account::_displayTimestamp(void) {
-    // Implement this function to display the timestamp in the desired format
-    // For example: [19920104_091532]
+    time_t the_time = time(NULL);
+    tm *ltm = localtime(&the_time);
+    
+    std::cout << "[";
+    std::cout << 1900 + ltm->tm_year;
+    std::cout << ltm->tm_mon;
+    std::cout << ltm->tm_mday;
+    std::cout << "_";
+    std::cout << ltm->tm_hour;
+    std::cout << ltm->tm_min;
+    std::cout << ltm->tm_sec;
+    std::cout << "]";
+    std::cout << " ";
 }
 
 int Account::getNbAccounts(void) {

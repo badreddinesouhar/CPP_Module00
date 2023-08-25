@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:28:33 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/25 17:42:35 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/25 18:30:57 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		main( void ) {
 
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
-
+	
 	for ( acc_int_t it( acc_begin, dep_begin );
 		  it.first != acc_end && it.second != dep_end;
 		  ++(it.first), ++(it.second) ) {
@@ -49,12 +49,13 @@ int		main( void ) {
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
-	for ( acc_int_t it( acc_begin, wit_begin );
-		  it.first != acc_end && it.second != wit_end;
-		  ++(it.first), ++(it.second) ) {
+	// for ( acc_int_t it( acc_begin, wit_begin );
+	// 	  it.first != acc_end && it.second != wit_end;
+	// 	  ++(it.first), ++(it.second) ) {
 
-		(*(it.first)).makeWithdrawal( *(it.second) );
-	}
+	// 	(*(it.first)).makeWithdrawal( *(it.second) );
+	// }
+	(void)wit_begin, (void)wit_end;
 
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
