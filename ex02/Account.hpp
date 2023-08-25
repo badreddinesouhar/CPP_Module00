@@ -6,11 +6,11 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:28:29 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/25 21:58:52 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/25 22:22:28 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #pragma once
+#pragma once
 #ifndef _ACCOUNT_HPP
 #define _ACCOUNT_HPP
 

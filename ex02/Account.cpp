@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:28:27 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/25 22:12:42 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/25 22:30:55 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,11 @@ void Account::_displayTimestamp(void) {
     tm *ltm = localtime(&the_time);
     
     std::cout << "[";
-    std::cout << 1900 + ltm->tm_year;
-    std::cout << ltm->tm_mon;
-    std::cout << ltm->tm_mday;
-    std::cout << "_";
-    std::cout << ltm->tm_hour;
-    std::cout << ltm->tm_min;
-    std::cout << ltm->tm_sec;
-    std::cout << "]";
-    std::cout << " ";
+    std::cout << 1900 + ltm->tm_year << ltm->tm_mon
+            << ltm->tm_mday << ltm->tm_mon
+             << ltm->tm_mday << "_"
+             << ltm->tm_hour << ltm->tm_min << ltm->tm_sec
+            << "]" << " ";
 }
 
 int Account::getNbAccounts(void) {
