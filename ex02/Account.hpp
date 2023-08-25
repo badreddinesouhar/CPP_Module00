@@ -6,17 +6,21 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:28:29 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/25 15:32:20 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/08/25 18:13:11 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef __ACCOUNT_H__
-#define __ACCOUNT_H__
+// #pragma once
+#ifndef _ACCOUNT_HPP
+#define _ACCOUNT_HPP
 
 // ************************************************************************** //
 //                               Account Class                                //
 // ************************************************************************** //
+
+#include <iostream>
+#include <vector>
+#include <utility>
 
 class Account {
 
