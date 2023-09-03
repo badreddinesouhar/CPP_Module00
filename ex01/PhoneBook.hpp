@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:29:28 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/24 22:19:00 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/09/03 11:51:24 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
     Contact contacts[8];
     struct {
         int num;
+        int p;
     } contact;
     void fill_the_contact(Contact& contact);
     void search();

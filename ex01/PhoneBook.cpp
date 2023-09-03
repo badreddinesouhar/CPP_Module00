@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:29:17 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/08/24 23:05:02 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/09/03 12:02:36 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 PhoneBook::PhoneBook() {
     contact.num = 0;
+    contact.p = 0;
 }
 
 void head() {
@@ -57,18 +58,53 @@ void idx_infos(const PhoneBook& phonebook, int idx) {
     std::cout << phonebook.contacts[idx].getDarkSecret() << std::endl;
 }
 
+int ft_stoi(std::string str) {
+    int res = 0;
+    int sign = 1;
+    int i = 0;
+    
+    if (str[i] == '-') {
+        sign *= -1;
+        i++;
+    } else if (str[i] == '+') {
+        i++;
+    }
+    while (str[i] >= '0' && str[i] <= '9') {
+        res = res * 10 + (str[i] - '0');
+        i++;
+    }
+    return res * sign;
+}
+
 void PhoneBook::search() {
     head();
-    for (int i = 0; i < contact.num; ++i) {
-        body(*this, i);
+    if (contact.p == 0) {
+        for (int i = 0; i < contact.num; ++i) {
+            body(*this, i);
+        }
     }
-    int idx = -1;
+    else if (contact.p == 1) {
+        for (int i = 0; i < 8; ++i) {
+            body(*this, i);
+        }
+    }
+    std::string sIdx;
     std::cout << "choose an index:";
-    std::cin >> idx;
-    if (0 <= idx && idx < contact.num) {
-        idx_infos(*this, idx);
-    } else {
-        std::cout << "wrong input" << std::endl;
+    std::cin >> sIdx;
+    int idx = ft_stoi(sIdx);
+    if (contact.p == 0) {
+        if (0 <= idx && idx < contact.num) {
+            idx_infos(*this, idx);
+        } else {
+            std::cout << "wrong input" << std::endl;
+        }
+    }
+    else if (contact.p == 1) {
+        if (0 <= idx && idx < 8) {
+            idx_infos(*this, idx);
+        } else {
+            std::cout << "wrong input" << std::endl;
+        }
     }
 }
 
@@ -80,6 +116,9 @@ int main() {
         getline(std::cin, input_line);
         if (input_line == "ADD") {
             phonebook.contacts[phonebook.contact.num % 8].fill_the_contact();
+            if (phonebook.contact.num == 8) {
+                phonebook.contact.p = 1;
+            }
             phonebook.contact.num++;
         } else if (input_line == "SEARCH") {
             phonebook.search();

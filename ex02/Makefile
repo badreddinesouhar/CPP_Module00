@@ -1,4 +1,4 @@
-NAME = PhoneBook
+NAME = 19920104_091532.log
 
 SRC = tests.cpp Account.cpp
 OBJ = $(SRC:.cpp=.o)
