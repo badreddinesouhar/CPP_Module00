@@ -6,89 +6,79 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:37:55 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/09/03 12:47:07 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/09/06 16:02:49 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 Contact::Contact() {
 }
 
+Contact::~Contact() {
+}
+
 std::string Contact::getFirstName() const {
-    return first_name;
+    return firstName;
 }
 
 std::string Contact::getLastName() const {
-    return last_name;
+    return lastName;
 }
 
 std::string Contact::getNickname() const {
-    return nickname;
+    return nickName;
 }
 
 std::string Contact::getPhoneNumber() const {
-    return phone_number;
+    return phoneNumber;
 }
 
 std::string Contact::getDarkSecret()const {
-    return dark_secret;
+    return darkSecret;
 }
 
-bool char_in_set(const std::string& set, char c) {
-    for (size_t i = 0; i < set.length(); ++i) {
-        if (set[i] == c) {
-            return true;
-        }
-    }
-    return false;
-}
-
-std::string strtrim(const std::string& s, const std::string& set) {
-    size_t i = 0;
-    size_t j = s.length() - 1;
-
-    while (i < s.length()) {
-        if (!char_in_set(set, s[i])) {
-            break;
-        }
-        i++;
-    }
-
-    while (j >= i) {
-        if (!char_in_set(set, s[j])) {
-            break;
-        }
-        j--;
-    }
-
-    return s.substr(i, j - i + 1);
-}
-
-void Contact::fill_the_contact() {
-    while (first_name == "") {
+int Contact::fill_the_contact() {
+    firstName = "";
+    while (firstName == "") {
         std::cout << "First name: ";
-        getline(std::cin, first_name);
-        first_name = strtrim(first_name, " \t");
+        getline(std::cin, firstName);
+        if(firstName.empty())
+            return 0;
+        firstName = strtrim(firstName, " \t\v\f\r");
     }
-    while (last_name == "") {
+    lastName = "";
+    while (lastName == "") {
         std::cout << "Last name: ";
-        getline(std::cin, last_name);
-        last_name = strtrim(last_name, " \t");
+        getline(std::cin, lastName);
+        if (lastName.empty())
+            return 0;
+        lastName = strtrim(lastName, " \t\v\f\r");
     }
-    while (nickname == "") {
+    nickName = "";
+    while (nickName == "") {
         std::cout << "Nickname: ";
-        getline(std::cin, nickname);
-        nickname = strtrim(nickname, " \t");
+        getline(std::cin, nickName);
+        if (nickName.empty())
+            return 0;
+        nickName = strtrim(nickName, " \t\v\f\r");
     }
-    while (phone_number == "") {
+    phoneNumber = "";
+    while (phoneNumber == "") {
         std::cout << "Phonenumber: ";
-        getline(std::cin, phone_number);
-        phone_number = strtrim(phone_number, " \t");
+        getline(std::cin, phoneNumber);
+         if (phoneNumber.empty())
+            return 0;
+        phoneNumber = strtrim(phoneNumber, " \t\v\f\r");
     }
-    while (dark_secret == "") {
+    darkSecret = "";
+    while (darkSecret == "") {
         std::cout << "Dark secret: ";
-        getline(std::cin, dark_secret);
-        dark_secret = strtrim(dark_secret, " \t");
+        getline(std::cin, darkSecret);
+        if (darkSecret.empty())
+            return 0;
+        darkSecret = strtrim(darkSecret, " \t\v\f\r");
     }
+    return (1);
 }

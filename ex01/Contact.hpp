@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:07:59 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/09/03 11:52:19 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/09/06 16:03:08 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Contact {
 private:
-    std::string first_name;
-    std::string last_name;
-    std::string nickname;
-    std::string phone_number;
-    std::string dark_secret;
+    std::string firstName;
+    std::string lastName;
+    std::string nickName;
+    std::string phoneNumber;
+    std::string darkSecret;
     
 public:
     Contact();
-    void fill_the_contact();
+    ~Contact();
+    int fill_the_contact();
     std::string getFirstName() const;
     std::string getLastName() const;
     std::string getNickname() const;

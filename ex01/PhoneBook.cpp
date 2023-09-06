@@ -17,6 +17,8 @@ PhoneBook::PhoneBook() {
     contact.p = 0;
 }
 
+PhoneBook::~PhoneBook() {}
+
 void head() {
     std::cout << "---------------------------------------------" << std::endl;
     std::cout << "| index    |first name| last name| nickname |" << std::endl;
@@ -25,25 +27,12 @@ void head() {
 
 std::string shortage(std::string input) {
     if (input.length() >= 10) {
-        return input.substr(0, 10 - 1) + ".";
-    } else {
-        return input + std::string(10 - input.length(), ' ');
+        return input.substr(0, 9) + ".";
+    } 
+    else {
+        return (input);
     }
 }
-
-void body(const PhoneBook& phonebook, int index) {
-    std::cout << "| ";
-    std::cout << index;
-    std::cout << "        |";
-    std::cout << shortage(phonebook.contacts[index].getFirstName());
-    std::cout << "|";
-    std::cout << shortage(phonebook.contacts[index].getLastName());
-    std::cout << "|";
-    std::cout << shortage(phonebook.contacts[index].getNickname());
-    std::cout << "|" << std::endl;
-    std::cout << "---------------------------------------------" << std::endl;
-}
-
 
 void idx_infos(const PhoneBook& phonebook, int idx) {
     std::cout << "First name: ";
@@ -58,22 +47,14 @@ void idx_infos(const PhoneBook& phonebook, int idx) {
     std::cout << phonebook.contacts[idx].getDarkSecret() << std::endl;
 }
 
-int ft_stoi(std::string str) {
-    int res = 0;
-    int sign = 1;
-    int i = 0;
-    
-    if (str[i] == '-') {
-        sign *= -1;
-        i++;
-    } else if (str[i] == '+') {
-        i++;
-    }
-    while (str[i] >= '0' && str[i] <= '9') {
-        res = res * 10 + (str[i] - '0');
-        i++;
-    }
-    return res * sign;
+void body(const PhoneBook& phoneBook, int index) {
+    (void)phoneBook;
+    std::cout << "|" << std::setw(10) << std::right << index;
+    std::cout << "|" << std::setw(10) << std::right << shortage(phoneBook.contacts[index].getFirstName());
+    std::cout << "|" << std::setw(10) << std::right << shortage(phoneBook.contacts[index].getLastName());
+    std::cout << "|" << std::setw(10) << std::right << shortage(phoneBook.contacts[index].getNickname());
+    std::cout << "|" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
 }
 
 void PhoneBook::search() {
@@ -89,8 +70,17 @@ void PhoneBook::search() {
         }
     }
     std::string sIdx;
-    std::cout << "choose an index:";
-    std::cin >> sIdx;
+    while (sIdx == "") {
+        std::cout << "choose an index:";
+        getline(std::cin, sIdx);
+        if (sIdx.empty())
+            return ;
+        sIdx = strtrim(sIdx, " \t");
+    }
+    if (isDigit(sIdx) == 1) {
+        std::cout << "wrong input" << std::endl;
+        return ;
+    }
     int idx = ft_stoi(sIdx);
     if (contact.p == 0) {
         if (0 <= idx && idx < contact.num) {
@@ -106,25 +96,4 @@ void PhoneBook::search() {
             std::cout << "wrong input" << std::endl;
         }
     }
-}
-
-int main() {
-    PhoneBook phonebook;
-    std::string input_line;
-
-    while (std::cin) {
-        getline(std::cin, input_line);
-        if (input_line == "ADD") {
-            phonebook.contacts[phonebook.contact.num % 8].fill_the_contact();
-            if (phonebook.contact.num == 8) {
-                phonebook.contact.p = 1;
-            }
-            phonebook.contact.num++;
-        } else if (input_line == "SEARCH") {
-            phonebook.search();
-        } else if (input_line == "EXIT") {
-            return 0;
-        }
-    }
-    return 0;
 }

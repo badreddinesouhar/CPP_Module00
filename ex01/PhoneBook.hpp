@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:29:28 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/09/03 11:51:24 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/09/06 15:25:51 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,19 @@
 class PhoneBook {
 public:
     PhoneBook();
+    ~PhoneBook();
 
     Contact contacts[8];
     struct {
         int num;
         int p;
     } contact;
-    void fill_the_contact(Contact& contact);
     void search();
     void searchContact(const std::string& searchTerm);
 };
+
+std::string strtrim(const std::string& s, const std::string& set);
+int ft_stoi(std::string str);
+int isDigit(std::string str);
 
 #endif
